@@ -1,5 +1,7 @@
 # EzGo - Travel Planner Project
 _For the best experience, please use Google Chrome or Microsoft Edge!_
+
+
 EzGo (Short for Easy Go) is a user-friendly travel planner web application that generates a travel itinerary in .pdf file format
 
 **What is it?**
