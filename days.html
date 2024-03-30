@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'> <!--Font-->
+    <link rel = "stylesheet" type="text/css" href = "css/days.css">
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"
+        integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+		
+	<script src="javaScript/qrcode.js"></script>
+		
+</head>
+<body>
+    <div style="display: inline-block;"> <!--Header Div-->
+		<img src="images/logoWhite.png" alt="logo"> <!--Logo-->
+		</div>
+		<!--Top Links-->
+			<a href="itinerary.html" class="topLinks" style="border-bottom: 2px solid white; padding-bottom:0.3%; margin-left: 15%;">YOUR TRIP</a>
+			<a href="help.html" class="topLinks" style="margin-left: 3%;">HELP</a>
+	
+			<a href="aboutUs.html" class="topLinks"style="margin-left: 3%;">ABOUT US</a>
+		</div>
+		
+	
+	<div id="bg" class="bg"> <!-- White background Container-->
+		<div id="Template Box">
+			<div id="dayContainer0" class="container" style="display: none;"> <!-- temp day container -->
+					
+			</div>
+			<div id="cityBox" class="rectangle" style="display: none;"> <!-- temp city box -->
+				<div>
+					<h2 id="numOfDay" style="margin-left: 5%; margin-bottom: -2%; color: #535353;">Day 1</h2>
+					<div class="wrapper" style="display: inline-block; margin-left:6%; width: 20%;"> 
+						<label name="city" class="label"> City </label>
+						<input id="city0" type="text" placeholder="London" style="text-align: left;margin-left:5%; margin-top:0%; border: none; width: 80%; height: 38px; color:#8d8b8b;padding-left: 20px;"> 
+					</div>
+					<div class="wrapper" style="display: inline-block; margin-top:4%; margin-left:16%; width: 20%;">
+						<label name="timeZone" class="label"> Time Zone </label>
+						<input id="timeZone0" type="text" placeholder="GMT/UTC UTC+0" style="text-align: left;margin-left:5%; margin-top:0%; border: none; width: 80%; height: 38px; color:#8d8b8b; padding-left: 20px;"> 
+					</div>
+				</div>
+				<hr style="height:2px;border:none;color:#8d8b8b;background-color:#8d8b8b">
+				<div>
+					<div class="wrapper" style= "display: inline-block;margin-top:2%; margin-left:6%; height: 60px; width: 25%">
+						<label name="hotel" class="label"> Hotel </label>
+						<input id="hotel0" type="text" placeholder="Shangrila Hotel" style="text-align:left;margin-left:7%; margin-top:2%; border: none; width: 90%; height: 80%; color:#8d8b8b;" >
+					</div>
+					<div class="wrapper" style= "display: inline-block;margin-top:2%; margin-left:6%; height: 60px; width: 25%">
+						<label name="breakfast" class="label"> Breakfast Service </label>
+						<select id="selectBreakfast0" name="breakfast" style="display:inline;text-align:left;margin-top:4%;margin-left:5%; border: none; width: 80%; height: 38px; color:#8d8b8b;border-radius: 10px; padding-left: 20px;"> 
+							<option value="Options">Select</option>
+							<option value="yes">Yes</option>
+							<option value="no">No</option>
+						</select> 
+					</div>
+					<div class="wrapper" style= "display: inline-block;margin-top:2%; margin-left:6%; height: 60px; width: 25%">
+						<label name="qrContainer" class="label"> qrContainer </label>
+						<div id="qrContainer0">
+							
+						</div>
+					</div> 
+				</div>
+				<div>
+					<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 25%">
+						<label name="checkin" class="label"> Check-In </label>
+						<input id="checkin0" type="datetime-local" style="margin-left:1%; margin-top:2%; border: none; width: 90%; height: 80%; color:#8d8b8b;" >
+					</div>
+					<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 25%">
+						<label name="checkout" class="label"> Check-Out</label>
+						<input id="checkout0" type="datetime-local" style="margin-left:1%; margin-top:2%; border: none; width: 90%; height: 80%; color:#8d8b8b;" >
+					</div>					
+					<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 25%">
+						<label name="hotelPhoneNo" class="label"> Phone Number</label>
+						<input id="hotelPhoneNo0" type="tel" style="margin-left:1%; margin-top:2%; border: none; width: 90%; height: 80%; color:#8d8b8b;" >
+					</div> 
+					<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 88%;border-radius: 2%/25%;">
+						<label name="address" class="label"> Address</label>
+						<input id="address0" placeholder="Great Russell St, London WC1B 3DG" type="text" style="margin-left:1%; margin-top:2%; border: none; width: 90%; height: 50%; color:#8d8b8b;" >
+					</div> 
+				</div><br><br>
+			</div>
+			<div id="rectangle" class="rectangle" style="display: none; margin-top: 3%;" > <!--temp place box-->
+				<form name="travelDetails">					
+					<div>
+						<div class="wrapper" style= "display:inline-block;margin-top:3%; margin-left:6%; height: auto; width: 25%;border-radius: 8%/25%;">
+							<label name="place" class="label"> Place</label>
+							<input id="place0" placeholder="The Peak" type="text" style="margin-left:2%; margin-top:5%; border: none; width: 90%; height: 50%; color:#8d8b8b;" >
+						</div> 
+						<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 25%;border-radius: 8%/25%">
+							<label name="placePhoneNo" class="label"> Phone Number</label>
+							<input id="placePhoneNo0" type="tel" style="margin-left:2%; margin-top:5%; border: none; width: 90%; height: 50%; color:#8d8b8b;" >
+						</div> 
+						<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 25%;border-radius: 8%/25%">
+							<label name="estTime" class="label"> Estimated Travelling Time</label>
+							<input id="estTime0" type="text" style="margin-left:2%; margin-top:5%; border: none; width: 90%; height: 50%; color:#8d8b8b;" >
+						</div> 
+					</div>
+					<div>
+						<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 88%;border-radius: 2%/25%;">
+							<label name="placelocation" class="label"> Location</label>
+							<input id="placelocation0" placeholder="Great Russell St, London WC1B 3DG" type="text" style="margin-left:1%; margin-top:2%; border: none; width: 90%; height: 50%; color:#8d8b8b;" >
+						</div> 
+					</div>
+					<div>
+						<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 88%;border-radius: 2%/25%;">
+							<label name="notes" class="label"> Notes</label>
+							<input id="notes0" placeholder="Be aware of weather" type="text" style="margin-left:1%; margin-top:2%; border: none; width: 90%; height: 50%; color:#8d8b8b;" >
+						</div> 
+					</div><br><br>
+				</form>
+			</div>
+			<div id="displayBox" class="rectangle" style="display: none;"> <!-- temp display box -->
+				<div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 88%;border-radius: 2%/25%;">
+					<label id="numOfPlace0" class="label">Place</label><br>
+				</div>			
+			</div>
+		</div>
+		<div id="mainContainer">
+			
+		</div>
+		
+		
+		<div style="display:inline-flex; align-items:flex-end; float: right; width:60%; height:90px; position: relative;">
+			<div style="width:10%; height:50%; margin-left:65%; margin-top:-15%;position: relative; ">
+				<button id="addMoreBtn" onclick="cloneRectangle();" style="position:relative" class="formButton">Add More Place</button>
+			</div>
+			<div style="width:10%; height:50%; margin-left:8%; margin-top:-15%;position: relative; "> <!--Finish Button-->
+				<!-- <a href="days.html"> -->
+				<button id = "nextDayBtn" onclick="nextDay();" style="position:relative" class="formButton">Next Day</button></a> <!--Move to day 2-->
+			</div>
+		</div>
+		<div> <!--Quit-->
+			<a href="homePage.html" style="margin-left:95%;margin-top:40px; display:inline">Quit</a>
+		</div>
+	</div>
+</body>
+<script>
+	
+	let detailBoxCount = 0;
+	let dayBoxCount = 0;
+	let reportDayCount = [];
+	let dayCount = 0;
+	let rectangleCount = 1;
+	let placeOfDay = 0;
+	let days_v3 = 0;
+	
+	runOnload();
+	
+	//setInterval(function(){changeQrCode();}, 1000);
+	
+	changeQrCode();
+	
+	function runOnload(){
+		days_v3 = localStorage.getItem('Days');
+		console.log('Days:' + days_v3);
+		if(days_v3 == 1){
+			cloneDay();
+			placeOfDay = 0;
+			changeQrCode();
+			document.getElementById("nextDayBtn").innerHTML = "Finish";
+		}else{
+			cloneDay();
+			placeOfDay = 0;
+			changeQrCode();
+		}
+	}
+	
+	function nextDay(){
+		if(dayBoxCount < days_v3 - 1){
+			cloneDay();
+			const tempID = dayBoxCount - 1;
+			document.getElementById("numOfPlace"+tempID).innerHTML = "Day" + tempID.toString() + "&emsp;City: " + document.getElementById("city"+tempID).value + "&emsp;Place: " + placeOfDay.toString();
+			document.getElementById("displayBox"+tempID).style.display = 'inline-block';
+			placeOfDay = 0;
+			changeQrCode();
+		} else if (dayBoxCount == days_v3 - 1 ){
+			cloneDay();
+			const tempID = dayBoxCount - 1;
+			document.getElementById("numOfPlace"+tempID).innerHTML = "Day" + tempID.toString() + "&emsp;City: " + document.getElementById("city"+tempID).value + "&emsp;Place: " + placeOfDay.toString();
+			document.getElementById("displayBox"+tempID).style.display = 'inline-block';
+			placeOfDay = 0;
+			changeQrCode();
+			
+			document.getElementById("nextDayBtn").innerHTML = "Finish";
+		} else {
+			//只需将finish后要做的事情写入此处即可
+			generatePdf();
+		}		
+	}
+	
+	function savePDF(){
+		document.getElementById("dayContainer0").id = "dayContainerSave";
+		for (let i = 1; i < dayBoxCount; i++) {
+			document.getElementById("displayBox"+i).style.display = 'none';
+			document.getElementById("dayContainer"+i).style.display = 'inline-block';
+		}
+	}
+	
+	function cloneDay(){
+		
+		document.getElementById("dayContainer"+dayBoxCount.toString()).style.display = 'none';
+		dayBoxCount += 1;
+		document.getElementById("numOfDay").innerHTML = "Day"+dayBoxCount.toString();
+		
+		const cloneContainer = document.getElementById("mainContainer");
+		const tempObject = document.getElementById("dayContainer0");
+		const cloneObject = tempObject.cloneNode(true);
+		cloneObject.setAttribute('id', "dayContainer"+dayBoxCount.toString());
+		cloneContainer.appendChild(cloneObject);
+		document.getElementById("dayContainer"+dayBoxCount.toString()).style.display = 'inline-block';
+		
+		cloneCity();
+		cloneRectangle();
+		cloneDisplayBox();
+	
+		reportDayCount.push(detailBoxCount);
+	}
+	
+	function cloneCity(){
+		
+		const tempID = dayBoxCount - 1;
+		document.getElementById("city"+tempID).id = "city"+dayBoxCount.toString();
+		document.getElementById("timeZone"+tempID).id = "timeZone"+dayBoxCount.toString();
+		document.getElementById("hotel"+tempID).id = "hotel"+dayBoxCount.toString();
+		document.getElementById("selectBreakfast"+tempID).id = "selectBreakfast"+dayBoxCount.toString();
+		document.getElementById("qrContainer"+tempID).id = "qrContainer"+dayBoxCount.toString();
+		document.getElementById("checkin"+tempID).id = "checkin"+dayBoxCount.toString();
+		document.getElementById("checkout"+tempID).id = "checkout"+dayBoxCount.toString();
+		document.getElementById("hotelPhoneNo"+tempID).id = "hotelPhoneNo"+dayBoxCount.toString();
+		document.getElementById("address"+tempID).id = "address"+dayBoxCount.toString();
+		
+		
+		const cloneContainer = document.getElementById("dayContainer"+dayBoxCount.toString());
+		const tempObject = document.getElementById("cityBox");
+		const cloneObject = tempObject.cloneNode(true);
+		cloneObject.setAttribute('id', "cityBox"+dayBoxCount.toString());
+		cloneContainer.appendChild(cloneObject);
+		document.getElementById("cityBox"+dayBoxCount.toString()).style.display = 'inline-block';
+	}
+	
+	function cloneRectangle(){
+	
+		const cloneID = detailBoxCount + 1;
+		document.getElementById("place"+detailBoxCount).id = "place"+cloneID.toString();
+		document.getElementById("placePhoneNo"+detailBoxCount).id = "placePhoneNo"+cloneID.toString();
+		document.getElementById("estTime"+detailBoxCount).id = "estTime"+cloneID.toString();
+		document.getElementById("placelocation"+detailBoxCount).id = "placelocation"+cloneID.toString();
+		document.getElementById("notes"+detailBoxCount).id = "notes"+cloneID.toString();	
+		detailBoxCount += 1;
+		
+		const cloneContainer = document.getElementById("dayContainer"+dayBoxCount.toString());
+		const tempObject = document.getElementById("rectangle");
+		const cloneObject = tempObject.cloneNode(true);		
+		cloneObject.setAttribute('id', "rectangle"+cloneID.toString());
+		cloneContainer.appendChild(cloneObject);
+		document.getElementById("rectangle"+cloneID.toString()).style.display = 'inline-block';
+		
+		placeOfDay += 1;
+	}
+	
+	function cloneDisplayBox(){
+		
+		const tempID = dayBoxCount - 1;
+		document.getElementById("numOfPlace"+tempID).id = "numOfPlace"+dayBoxCount.toString();
+		
+		const cloneContainer = document.getElementById("mainContainer");
+		const tempObject = document.getElementById("displayBox");
+		const cloneObject = tempObject.cloneNode(true);		
+		cloneObject.setAttribute('id', "displayBox"+dayBoxCount.toString());
+		cloneContainer.appendChild(cloneObject);
+	}
+	
+	function reportSave(){
+		document.getElementById("place"+detailBoxCount).id = "placeSave";
+		document.getElementById("placePhoneNo"+detailBoxCount).id = "placePhoneNoSave";
+		document.getElementById("estTime"+detailBoxCount).id = "estTimeSave";
+		document.getElementById("placelocation"+detailBoxCount).id = "placelocationSave";
+		document.getElementById("notes"+detailBoxCount).id = "notesSave";
+		
+		document.getElementById("city"+dayBoxCount).id = "citySave";
+		document.getElementById("timeZone"+dayBoxCount).id = "timeZoneSave";
+		document.getElementById("hotel"+dayBoxCount).id = "hotelSave";
+		document.getElementById("selectBreakfast"+dayBoxCount).id = "selectBreakfastSave";
+		document.getElementById("checkin"+dayBoxCount).id = "checkinSave";
+		document.getElementById("checkout"+dayBoxCount).id = "checkoutSave";
+		document.getElementById("hotelPhoneNo"+dayBoxCount).id = "hotelPhoneNoSave";
+		document.getElementById("address"+dayBoxCount).id = "addressSave";
+
+		const numOfBox = detailBoxCount;
+		console.log(numOfBox);
+		for (let i = 1; i <= numOfBox; i++){
+			
+			if (reportDayCount.includes(i) == true){
+				dayCount += 1;
+				rectangleCount = 1;
+				
+				const arrayCityDay = "Day"+dayCount.toString();
+				const arrayCityName = "City"+dayCount.toString();
+				const inputCity1 = document.getElementById("city"+dayCount.toString()).value;
+				const inputCity2 = document.getElementById("timeZone"+dayCount.toString()).value;
+				const inputCity3 = document.getElementById("hotel"+dayCount.toString()).value;
+				const inputCity4 = document.getElementById("selectBreakfast"+dayCount.toString()).value;
+				const inputCity5 = document.getElementById("checkin"+dayCount.toString()).value;
+				const inputCity6 = document.getElementById("checkout"+dayCount.toString()).value;
+				const inputCity7 = document.getElementById("hotelPhoneNo"+dayCount.toString()).value;
+				const inputCity8 = document.getElementById("address"+dayCount.toString()).value;
+				const cityArray = [arrayCityDay, arrayCityName, inputCity1, inputCity2, inputCity3, inputCity4, inputCity5, inputCity6, inputCity7, inputCity8];
+				console.log(cityArray);
+			}
+			const arrayDay = "Day"+dayCount.toString();
+			const arrayName = "Rectangle"+rectangleCount.toString();
+			const input1 = document.getElementById("place"+i.toString()).value;
+			const input2 = document.getElementById("placePhoneNo"+i.toString()).value;
+			const input3 = document.getElementById("estTime"+i.toString()).value;
+			const input4 = document.getElementById("placelocation"+i.toString()).value;
+			const input5 = document.getElementById("notes"+i.toString()).value;
+			const placeArray = [arrayDay, arrayName, input1, input2, input3, input4, input5];
+			rectangleCount += 1;
+			console.log(placeArray);
+		}
+	}
+	
+	
+	window.jsPDF = window.jspdf.jsPDF;
+    function generatePdf() {
+		savePDF();
+		window.scrollTo(0,0);
+
+        let jsPdf = new jsPDF('p', 'mm', 'a4');
+        var htmlElement = document.getElementById('mainContainer');
+        // you need to load html2canvas (and dompurify if you pass a string to html)
+        const opt = {
+            callback: function (jsPdf) {
+                jsPdf.save("Test.pdf");
+                // to open the generated PDF in browser window
+            },
+            margin: [0, 0, 0, 0],
+            html2canvas: { //pdf layout
+				taintTest: true,
+                allowTaint: true,
+                dpi: 400,
+                letterRendering: true,
+                logging: false,
+                scale: .15,
+				useCORS: true,
+				scrollX: 0,
+				scrollY: -window.scrollY
+            }
+        };
+        jsPdf.html(htmlElement, opt);
+			
+		setTimeout("goFinalPage()",5000);
+    }
+	
+	function goFinalPage(){
+		window.location = "finalPage.html";
+	}
+		
+		
+	function genQrCode(getLink){ //QR code style
+		var qrcode = new QRCode(document.getElementById('qrcode'),{
+		text: getLink,
+		width: 200,
+		height: 200,
+		colorDark : "#000000",
+		colorLight : "#ffffff",
+		correctLevel : QRCode.CorrectLevel.H
+		});
+	}
+	
+	function changeQrCode(){
+		const hotelNameCheck = document.querySelectorAll("#hotel"+dayBoxCount.toString());
+		const qrCodePlace = document.querySelectorAll("#qrContainer"+dayBoxCount.toString());
+		
+		hotelNameCheck[1].addEventListener('input', function(e) {
+			console.log(e.target.value);
+			qrCodePlace[1].innerHTML = "<br>";
+			var qrcode = new QRCode(qrCodePlace[1],{ //generate QR code using QRCode function
+							text: "https://www.google.com.hk/maps/search/"+hotelNameCheck[1].value, //create google maps link based on user input
+							width: 100,
+							height: 100,
+							colorDark : "#000000",
+							colorLight : "#ffffff",
+							correctLevel : QRCode.CorrectLevel.H
+						});
+		})
+	}
+	
+	
+	
+	
+	
+	
+	
+</script>

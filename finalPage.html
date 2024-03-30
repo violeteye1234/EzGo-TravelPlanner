@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'> <!--Font-->
+    <link rel = "stylesheet" type="text/css" href = "css/finalPage.css">
+</head>
+<body>
+    <div> <!--Header Div-->
+        <img src="images/logoWhite.png" alt="logo" style="display:inline-block; width:15%; height:10%; vertical-align: middle;"> <!--Logo-->
+        <!--buttons-->
+        <div style="margin-left: 65%; display: inline-block;">
+            <a href="help.html" class="topLinks" style="padding-bottom:0.3%; margin-right:30px">HELP</a>
+            <a href="aboutUs.html" class="topLinks">ABOUT US</a>
+        </div>
+    </div>
+    <div id="bg"> <!-- White background Container-->
+        <div style="display: flex; justify-content: center; align-items: center; height: 30%;">
+			    <img id="pdfi" src="images/logoPurple.png" alt="pdfI" >
+        </div>
+		<div style="display: flex; justify-content: center; align-items: center; height: 20%;">
+			<div class="box">
+            <div class="progress">
+              <div class="percent"></div>
+            </div>
+            <div class="steps">
+              <div class="step" id="0">
+                <div class="step-label">Create</div>
+              </div>
+              <div class="step" id="1">
+                <div class="step-label">Download</div>
+              </div>
+              <div class="step" id="2">
+                <div class="step-label">Ready to Share</div>
+              </div>
+            </div>
+            <button id="previousBtn" onclick="previousStep()" disabled>Previous</button>
+            <button id="nextBtn" onclick="nextStep()">Next</button>
+        </div>
+        </div>
+		<div style="height: 20%;">
+			<h2 style="text-align: center; margin-top: 1%;">Successfully Exported PDF File!</h2><br>
+			<h2 style="text-align: center; margin-top: 1%;">Thank You for using EzGo</h2>
+        </div>
+		
+        
+        <a href="homePage.html" style="display:inline-block; width:20%;border-radius:30px; padding:15px 0 15px 0; background-color:#6935D4; transform: translate(200%, 0); color:white; font-family:Inter; font-size: large; text-align: center;">Start A New Plan</a>
+    </div>
+	
+    <script>//progress bar
+        let els = document.getElementsByClassName('step');
+        let steps = [];
+        let currentStep = 0;
+        Array.prototype.forEach.call(els, (e) => {
+          steps.push(e);
+        });
+    
+        function nextStep() {
+          if (currentStep < steps.length - 1) {
+            progress(currentStep + 1);
+            currentStep++;
+            document.getElementById('previousBtn').disabled = false;
+            setTimeout(nextStep, 1000); //timer
+          } else if (currentStep === steps.length - 1) {
+            progress(currentStep + 1);
+            currentStep++;
+            document.getElementById('nextBtn').disabled = true;
+          }
+        }
+    
+        function previousStep() {
+          if (currentStep > 0) {
+            progress(currentStep - 1);
+            currentStep--;
+            document.getElementById('nextBtn').disabled = false;
+          } else if (currentStep === 0) {
+            progress(currentStep);
+            document.getElementById('previousBtn').disabled = true;
+          }
+        }
+    
+        function progress(stepNum) {
+          let totalWidth = 400;
+          let p = ((stepNum-1) / (steps.length - 1)) * totalWidth;
+          document.getElementsByClassName('percent')[0].style.width = `${p}px`;
+          steps.forEach((e) => {
+         if (e.id === stepNum.toString()) {
+           e.classList.add('selected');
+           e.classList.remove('completed');
+         }
+         if (e.id < stepNum) {
+           e.classList.add('completed');
+        }
+         if (e.id > stepNum) {
+           e.classList.remove('selected', 'completed');
+        }
+          });
+        }
+        setTimeout(nextStep, 1000);
+        // hide button
+        document.getElementById('previousBtn').style.display = 'none';
+        document.getElementById('nextBtn').style.display = 'none';
+    
+    </script>
+</body>
+</html>
