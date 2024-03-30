@@ -1,0 +1,102 @@
+body{
+    background-color: #6935D4
+}
+input{
+    text-align: center;
+    font-family: Inter;
+    font-size: 90%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bg{
+    background-color: #fff; 
+    width: 97%; 
+    height: auto; 
+    transform: translateY(2%); 
+    margin:0 auto;
+    position: relative;;
+}
+
+img{
+    display: inline;
+    width: 20%;
+    margin-left: 2%;
+}
+
+.topLinks{
+    color: white;
+    font-family: Inter;
+    text-decoration: none;
+}
+
+#container{
+    width: 97%;
+
+}
+.rectangle{
+    display: relative;
+    width:80%;
+    height: auto;
+    /* overflow: scroll; */
+    border: 1px solid #ababab;
+    transform: translate(15%, 10%);
+    border-radius: 5%/15%;
+}
+
+.wrapper{
+    border: 1px solid #ababab;
+    position: relative;
+    border-radius: 5%/15%;
+
+}
+
+.label{
+    position: absolute;
+    bottom: 90%;
+    z-index: 1;
+    left: 5%;
+    background-color: white;
+    padding: 0px;
+    width: auto;
+    font-size: 12px;
+    font-family: Inter;
+    color: #8d8b8b;
+}
+
+#selectBreakfast1{
+    border: none;
+    border-radius: 5%/15%;
+    position: relative;
+    width: 90%;
+    margin: 8%;
+    line-height: 6ex;
+    font-family: Inter;
+    color: #8d8b8b;
+    background-color: white;
+}
+
+.formButton{
+    background-color: #6935D4;
+    color: white;
+    font-family: Inter;
+    width:150%;
+    height:100%;
+    border-radius: 20%/40%;
+}
+
+.horizontal{
+    position:absolute; 
+    width: 3.2%; 
+    border: solid 0.5px #ababab;
+}
+
+.daysButton{
+    background-color: white;
+    color: #969393;;
+    font-family: Inter;
+    width:150%;
+    height:200%;
+    border-radius: 10%/10%;
+}

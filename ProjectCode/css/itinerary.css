@@ -1,0 +1,162 @@
+body{
+    background-color: #6935D4
+}
+input{
+    text-align: center;
+    font-family: Inter;
+    font-size: 90%;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.bg{
+    background-color: #fff; 
+    width: 97%; 
+    height: auto; 
+    transform: translateY(2%); 
+    margin:0 auto;
+    position: relative;;
+}
+
+img{
+    display: inline-block;
+    width: 20%;
+    margin-left: 2%;
+}
+
+.topLinks{
+    color: white;
+    font-family: Inter;
+    text-decoration: none;
+}
+
+#container{
+    width: 97%;
+
+}
+.rectangle{
+    position: flex;
+    width:80%;
+    height:auto;
+    border: 1px solid #ababab;
+    transform: translate(20%, -50%);
+    border-radius: 5%/15%;
+    
+}
+
+.wrapper{
+    border: 1px solid #ababab;
+    position: relative;
+    border-radius: 5%/15%;
+
+}
+
+.label{
+    position: absolute;
+    bottom: 90%;
+    z-index: 1;
+    left: 5%;
+    background-color: white;
+    padding: 0px;
+    width: auto;
+    font-size: 12px;
+    font-family: Inter;
+    color: #8d8b8b;
+}
+
+#selectTransportMode1{
+    border: none;
+    border-radius: 5%/15%;
+    position: relative;
+    width: 90%;
+    margin: 8%;
+    line-height: 6ex;
+    font-family: Inter;
+    color: #8d8b8b;
+    background-color: white;
+}
+
+.formButton{
+    background-color: #6935D4;
+    color: white;
+    font-family: Inter;
+    width:150%;
+    height:100%;
+    border-radius: 20%/40%;
+}
+
+.horizontal{
+    position:absolute; 
+    width: 3.2%; 
+    border: solid 0.5px #ababab;
+}
+
+.daysButton{
+    background-color: white;
+    color: #969393;;
+    font-family: Inter;
+    width:150%;
+    height:200%;
+    border-radius: 10%/10%;
+}
+
+
+.box {
+    position: absolute;
+    top: 10%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+  }
+
+  .steps {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+  }
+
+  .step {
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 3px solid #fff;
+    border-radius: 50%;
+    transition: background 0.5s;
+    position: relative;
+  }
+
+  .step.selected {
+    border: 3px solid #fff;
+  }
+
+  .step.completed {
+    border: 3px solid #008000;
+    background: #008000;
+  }
+
+  .step-label {
+    position: absolute;
+    top: 30px;
+    left: -15px;
+    font-size: 12px;
+    text-align: center;
+    width: 50px;
+  }
+
+  .progress {
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    border-bottom: 2px solid #fff;
+    z-index: -1;
+  }
+
+  .percent {
+    position: absolute;
+    width: 0;
+    height: 100%;
+    border-bottom: 2px solid #008000;
+    z-index: 1;
+    transition: width 0.5s;
+  }
