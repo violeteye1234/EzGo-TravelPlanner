@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<head>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'> <!--Font-->
+    <link rel = "stylesheet" type="text/css" href = "css/itinerary.css">
+</head>
+<body>
+    <div style="display: inline-block;"> <!--Header Div-->
+    <img src="images/logoWhite.png" alt="logo"> <!--Logo-->
+	</div>
+	<!--Top Links-->
+    	<a href="itinerary.html" class="topLinks" style="border-bottom: 2px solid white; padding-bottom:0.3%; margin-left: 15%;">YOUR TRIP</a>
+    	<a href="help.html" class="topLinks" style="margin-left: 3%;">HELP</a>
+
+    	<a href="aboutUs.html" class="topLinks"style="margin-left: 3%;">ABOUT US</a>
+    </div>	
+
+	<div class="bg"> <!-- White background Container-->
+        <div> <!--departure_text_box-->
+            <svg width="400" height="200">
+                <rect width="100" height="50" x="50" y="120" rx="10" ry="10" fill="none" stroke="#969393"; stroke-width="1px"/>
+                <text x="61" y="150" font-family="Inter" font-size="16" fill="#969393">Departure</text>
+			</svg>
+        </div>
+	
+	
+	
+
+		<div id="Template Box">
+			<div id="rectangle" class="rectangle" style="display: none;"> <!--Details-->
+				<form name="travelDetails">
+					<div>      <!-- Transport Mode & Number -->
+						<div class="wrapper" style= "display: inline-block; margin-top:4%; margin-left:6%; width: 30%"> 
+						<label name="transportMode" class="label"> Transport </label>
+						<select id="selectTransportMode0" name="transportMode">
+							<option value="" disabled selected hidden>Select</option>
+							<option value="flight">Flight</option>
+							<option value="train">Train</option>
+							<option value="car">Car</option>
+							<option value="ferry">Ferry</option>
+							<option value="helicopter">Helicopter</option>
+						</select>
+						</div>
+						<div class="wrapper" style= "display: inline-block; margin-top:4%; margin-left:17%; width: 30%;">
+							<label name="flightNum" class="label"> Number </label>
+							<input id="flightNum0" type="text" placeholder="Flight/Voyage Number:" style="text-align: left;margin-left:10%; margin-top:0%; border: none; width: 200px; height: 38px; color:#8d8b8b; border-radius: 10px; padding-left: 20px;"> 
+						</div> 
+					</div>
+					<div>      <!-- Depart&take-off -->
+						<div class="wrapper" style= "display: inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 30%">
+							<label name="departLocation" class="label"> Depart </label>
+							<input id="departLocation0" type="text" placeholder="E.g. Hong Kong International Airport..." style="margin-left:3%; margin-top:2%; border: none; width: 90%; height: 80%; color:#8d8b8b;" >
+						</div>
+						<div style="display: inline-block; ">
+							<label name="departTime" style="display: inline-block; position:relative; margin-left:60%; transform: translateY(60%);" class="label"> Take-off </label>
+							<input id="departTime0" type="datetime-local" value="2024-01-01T00:00" style="display:inline;text-align: left;margin-left:60%; border: none; width: 200px; height: 38px; color:#8d8b8b; border: 1px solid #ababab; border-radius: 10px; padding-left: 20px;"> 
+						</div> 
+					</div>
+					<div>      <!-- Arrive & Land -->
+                        <div class="wrapper" style= "display:inline-block;margin-top:4%; margin-left:6%; height: 60px; width: 30%">
+                            <label name="arriveLocation" class="label"> Arrive </label>
+                            <input id="arriveLocation0" type="text" placeholder="E.g. Heathrow International Airport..." style="margin-left:3%; margin-top:2%; border: none; width: 90%; height: 80%; color:#8d8b8b;" >
+                        </div>
+                        <div style="display: inline-block; ">
+                            <label name="arriveTime" style="display: inline-block; position:relative; margin-left:65%; transform: translateY(60%);" class="label"> Land </label>
+                            <input id="arriveTime0" type="datetime-local" id="Land" value="2024-01-01T00:00" style="display:inline;text-align: left;margin-left:64%; border: none; width: 200px; height: 38px; color:#8d8b8b; border: 1px solid #ababab; border-radius: 10px; padding-left: 20px;"> 
+                        </div> 
+					</div><br>
+				</form>
+			</div>
+        </div>
+		
+		<div id="mainContainer">
+			
+		</div>
+		
+        <div style="display:inline-flex; float: right; width:60%; height:90px; position: relative;">
+            <div style="width:auto; height:50%; margin-left:60%; margin-top:-15%;position: relative; "> <!--Add More Button-->
+                <button onclick="cloneDetails();"style="position:relative" class="formButton">Add More</button>
+            </div>
+            <div style="width:10%; height:50%; margin-left:8%; margin-top:-15%;position: relative; "> <!--Finish Button-->
+                <a href="days.html"><button style="position:relative" class="formButton">Finish</button></a>
+            </div>
+        </div>
+		
+		
+		
+        <div> <!--Quit-->
+            <a href="homePage.html" style="margin-left:95%;margin-top:1%; display:inline">Quit</a>
+        </div>
+    </div>
+</body>
+
+
+<script>
+	let detailBoxCount = 0; //detailbox clone tracker
+	
+	cloneDetails();
+		
+	function cloneDetails(){
+		const container = document.getElementById("mainContainer");
+		const rectangle = document.getElementById("rectangle");
+
+		const cloneID = detailBoxCount + 1; //change ID when cloning a new one
+		document.getElementById("selectTransportMode"+detailBoxCount).id = "selectTransportMode"+cloneID.toString();
+		document.getElementById("flightNum"+detailBoxCount).id = "flightNum"+cloneID.toString();
+		document.getElementById("departLocation"+detailBoxCount).id = "departLocation"+cloneID.toString();
+		document.getElementById("departTime"+detailBoxCount).id = "departTime"+cloneID.toString();
+		document.getElementById("arriveLocation"+detailBoxCount).id = "arriveLocation"+cloneID.toString();
+		document.getElementById("arriveTime"+detailBoxCount).id = "arriveTime"+cloneID.toString();
+		
+		detailBoxCount += 1
+		const cloneBox = rectangle.cloneNode(true);		
+		cloneBox.setAttribute('id', "rectangle"+cloneID.toString());
+		container.appendChild(cloneBox);
+		document.getElementById("rectangle"+cloneID.toString()).style.display = 'inline-block';
+		
+	}
+	
+	function checkF1(){  //save IDs and values in array form
+		document.getElementById("selectTransportMode"+detailBoxCount).id = "selectTransportModeSave";
+		document.getElementById("flightNum"+detailBoxCount).id = "flightNumSave";
+		document.getElementById("departLocation"+detailBoxCount).id = "departLocationSave";
+		document.getElementById("departTime"+detailBoxCount).id = "departTimeSave";
+		document.getElementById("arriveLocation"+detailBoxCount).id = "arriveLocationSave";
+		document.getElementById("arriveTime"+detailBoxCount).id = "arriveTimeSave";
+
+		const numOfBox = document.querySelectorAll('.rectangle').length;
+		for (let i = 1; i+1 <= numOfBox; i++){
+			const arrayName = "Departure"+i.toString();
+			const input1 = document.getElementById("selectTransportMode"+i.toString()).value;
+			const input2 = document.getElementById("flightNum"+i.toString()).value;
+			const input3 = document.getElementById("departLocation"+i.toString()).value;
+			const input4 = document.getElementById("departTime"+i.toString()).value;
+			const input5 = document.getElementById("arriveLocation"+i.toString()).value;
+			const input6 = document.getElementById("arriveTime"+i.toString()).value;
+			const ReportArray = [arrayName, input1, input2, input3, input4, input5, input6];
+			console.log(ReportArray);
+			console.log(i);
+		}
+	}
+</script>
