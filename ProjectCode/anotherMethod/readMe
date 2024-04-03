@@ -1,1 +1,17 @@
-Readme - zed joe
+README
+
+This JavaScript code does the following:
+
++ Global.js is for capturing the data array from days_3.html. Stored as arrays and elements to be exported to the PDF at a specific location.
++
++ Test2.js:
++ 1. After the webpage loads, it starts executing the function.
++ 2. It finds all the buttons on the page with the class "formButton".
++ 3. It selects the second button from the list of buttons. The comment suggests that this is due to some cloning operation that has occurred. + 4. It adds a click event listener to the "Finish" button. When the button is clicked, the following actions occur:
+- The default action of the button is prevented. This means that if the button was part of a form, it wouldn't submit the form.
+- It finds all the input fields on the page.
+- It creates a new PDF document using the jPDF library.
+- It loops through all the input fields. If the input field is a text field, it adds the ID and value of the input field to the PDF document. The text is positioned 10 units from the left edge and 10 units plus the index of the input field times 10 from the top edge.
++
+- After going through all the input fields, it saves the PDF document with the filename "info.pdf".
++ In summary, this code creates a PDF document with the IDs and values of all text input fields on the page when the second "Finish" button is clicked. The PDF is then saved with the filename "info.pdf". This could be used, for example, to save form data to a PDF document.
